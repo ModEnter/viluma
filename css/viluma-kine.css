@@ -33,6 +33,7 @@
     transition: opacity 0.2s;
   }
   nav ul li a:hover { opacity: 0.6; }
+  nav ul li a.active { color: var(--brun-dark); }
   .btn-rdv {
     background: var(--brun);
     color: var(--creme) !important;

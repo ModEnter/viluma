@@ -10,20 +10,10 @@
 
   <link rel="stylesheet" href="css/viluma-kine.css">
 </head>
-<body>
+<body data-page="home">
 
 <!-- NAV -->
-<nav>
-  <img class="logo" src="images/image-1.png" alt="Logo Viluma">
-  <ul>
-    <li><a href="#plateau">Le cabinet</a></li>
-    <li><a href="#soins">Nos soins</a></li>
-    <li><a href="#boxes">Nos boxes</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="https://www.doctolib.fr" class="btn-rdv">Prendre RDV</a></li>
-  </ul>
-  <a href="https://www.doctolib.fr" class="btn-rdv" style="display:none" id="mobile-rdv">RDV</a>
-</nav>
+<div data-component="navbar"></div>
 
 <!-- HERO -->
 <section class="hero">
@@ -210,28 +200,6 @@
   <p>© 2026 Cabinet Viluma – Kinésithérapie & Ostéopathie</p>
 </footer>
 
-<script>
-  // Mobile RDV button
-  const mobileBtn = document.getElementById('mobile-rdv');
-  if (window.innerWidth <= 900) mobileBtn.style.display = 'block';
-
-  // Scroll animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll('.section-plateau > *, .section-boxes-inner > *, .box-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-    observer.observe(el);
-  });
-</script>
   <script defer src="js/main.js"></script>
 </body>
 </html>
