@@ -1,5 +1,3 @@
-const NAV_COMPONENT_PATH = "components/navbar.html";
-
 const toggleMobileRdv = () => {
   const mobileRdvButton = document.getElementById("mobile-rdv");
   if (!mobileRdvButton) {
@@ -19,21 +17,17 @@ const highlightActiveNavLink = () => {
   }
 };
 
-const loadNavbar = async () => {
+const insertNavbar = () => {
   const placeholder = document.querySelector("[data-component=\"navbar\"]");
   if (!placeholder) {
     return;
   }
-  try {
-    const response = await fetch(NAV_COMPONENT_PATH);
-    if (!response.ok) {
-      throw new Error(`Failed to load navbar (${response.status})`);
-    }
-    placeholder.innerHTML = await response.text();
-    highlightActiveNavLink();
-  } catch (error) {
-    console.error(error);
+  if (!window.VilumaNavbarTemplate) {
+    console.error("Navbar template missing");
+    return;
   }
+  placeholder.innerHTML = window.VilumaNavbarTemplate;
+  highlightActiveNavLink();
 };
 
 const setupScrollAnimations = () => {
@@ -62,8 +56,8 @@ const setupScrollAnimations = () => {
   });
 };
 
-document.addEventListener("DOMContentLoaded", async () => {
-  await loadNavbar();
+document.addEventListener("DOMContentLoaded", () => {
+  insertNavbar();
   toggleMobileRdv();
   window.addEventListener("resize", toggleMobileRdv);
   setupScrollAnimations();
