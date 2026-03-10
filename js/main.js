@@ -17,6 +17,29 @@ const highlightActiveNavLink = () => {
   }
 };
 
+const adjustNavbarLinkPaths = () => {
+  const basePath = document.body.dataset.basePath || "";
+  if (!basePath) {
+    return;
+  }
+  const nav = document.querySelector("[data-component=\"navbar\"] nav");
+  if (!nav) {
+    return;
+  }
+  const anchors = nav.querySelectorAll("a[href]");
+  anchors.forEach((anchor) => {
+    const href = anchor.getAttribute("href");
+    if (!href) {
+      return;
+    }
+    const skip = href.startsWith("#") || href.startsWith("http") || href.startsWith("https") || href.startsWith("mailto") || href.startsWith("tel") || href.startsWith("//");
+    if (skip) {
+      return;
+    }
+    anchor.setAttribute("href", `${basePath}${href}`);
+  });
+};
+
 const insertNavbar = () => {
   const placeholder = document.querySelector("[data-component=\"navbar\"]");
   if (!placeholder) {
@@ -27,6 +50,7 @@ const insertNavbar = () => {
     return;
   }
   placeholder.innerHTML = window.VilumaNavbarTemplate;
+  adjustNavbarLinkPaths();
   highlightActiveNavLink();
 };
 
