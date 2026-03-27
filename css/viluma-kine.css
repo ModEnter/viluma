@@ -20,31 +20,69 @@
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 18px 48px;
-    background: rgba(234,231,223,0.92);
+    background: rgba(234,231,223,0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
   .logo-link img {
     height: 60px;
     width: auto;
     display: block;
   }
-  nav ul { display: flex; gap: 36px; list-style: none; }
-  nav ul li a {
+  .nav-links {
+    display: flex; gap: 36px; list-style: none;
+    align-items: center;
+  }
+  .nav-links li a {
     text-decoration: none;
     font-size: 14px; font-weight: 500; letter-spacing: 0.04em;
     color: var(--brun); text-transform: uppercase;
     transition: opacity 0.2s;
   }
-  nav ul li a:hover { opacity: 0.6; }
-  nav ul li a.active { color: var(--brun-dark); }
+  .nav-links li a:hover { opacity: 0.6; }
+  .nav-links li a.active { color: var(--brun-dark); font-weight: 600; }
+  .nav-links-rdv { display: none; }
   .btn-rdv {
+    display: inline-flex; align-items: center; justify-content: center;
     background: var(--brun);
     color: var(--creme) !important;
     padding: 11px 24px; border-radius: 30px;
     font-size: 13px !important; font-weight: 500 !important;
     text-transform: uppercase; letter-spacing: 0.06em;
+    text-decoration: none;
     transition: background 0.25s, transform 0.2s !important;
   }
   .btn-rdv:hover { background: var(--brun-dark) !important; transform: translateY(-1px); opacity: 1 !important; }
+  .btn-rdv-desktop { display: inline-flex; }
+
+  /* ── BURGER BUTTON ── */
+  .burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px; height: 40px;
+    background: none; border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 110;
+  }
+  .burger-line {
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--brun-dark);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .burger.open .burger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .burger.open .burger-line:nth-child(2) {
+    opacity: 0;
+  }
+  .burger.open .burger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
 
   /* ── HERO ── */
   .hero {
@@ -404,7 +442,64 @@
   /* ── MOBILE ── */
   @media (max-width: 900px) {
     nav { padding: 14px 20px; }
-    nav ul { display: none; }
+    .btn-rdv-desktop { display: none; }
+    .burger { display: flex; }
+    .nav-links {
+      position: fixed;
+      top: 0; right: -100%;
+      width: 80%; max-width: 360px;
+      height: 100vh; height: 100dvh;
+      background: var(--creme);
+      flex-direction: column;
+      gap: 0;
+      padding: 100px 32px 40px;
+      box-shadow: -8px 0 32px rgba(74, 36, 2, 0.12);
+      transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow-y: auto;
+      z-index: 105;
+    }
+    .nav-links.open { right: 0; }
+    .nav-links li {
+      width: 100%;
+      border-bottom: 1px solid rgba(103, 51, 2, 0.08);
+    }
+    .nav-links li a {
+      display: block;
+      padding: 18px 0;
+      font-size: 16px;
+      letter-spacing: 0.03em;
+    }
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: var(--brun-dark);
+      opacity: 1;
+    }
+    .nav-links-rdv {
+      display: block;
+      border-bottom: none;
+      margin-top: 16px;
+    }
+    .nav-links-rdv .btn-rdv {
+      display: block;
+      text-align: center;
+      padding: 16px 24px;
+      font-size: 14px !important;
+      width: 100%;
+    }
+    /* Overlay behind menu */
+    .nav-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(74, 36, 2, 0.3);
+      z-index: 101;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+    .nav-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
     .hero { grid-template-columns: 1fr; min-height: auto; }
     .hero-left { padding: 40px 24px 48px; }
     .hero-left::after { display: none; }
