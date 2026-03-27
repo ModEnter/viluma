@@ -1,0 +1,44 @@
+title: Cabinet Viluma – Kinésithérapie & Ostéopathie
+description: "Cabinet de kinésithérapie et d'ostéopathie à Boulogne-Billancourt. Rééducation active, plateau technique équipé, salles individualisées."
+url: "https://viluma-kinesitherapie.com"
+baseurl: ""
+lang: fr
+
+# Blog
+permalink: /blog/:slug/
+paginate: 9
+paginate_path: "/blog/page:num/"
+
+# Build
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+# Defaults
+defaults:
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: post
+      author: "Sarah Maréchal"
+      image: /images/blog/default-cover.jpg
+
+# Plugins (whitelisted by GitHub Pages)
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Feed
+feed:
+  path: feed.xml
+
+# Exclude from build
+exclude:
+  - README.md
+  - .claude
+  - .omc
+  - node_modules
+  - vendor

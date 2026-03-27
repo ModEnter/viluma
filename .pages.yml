@@ -1,0 +1,91 @@
+media:
+  input: images/blog
+  output: images/blog
+
+content:
+  - name: posts
+    label: Articles de blog
+    path: _posts
+    type: collection
+    view:
+      fields: [title, date, author, published]
+      sort: date
+      order: desc
+    fields:
+      - name: layout
+        type: hidden
+        default: post
+      - name: title
+        label: Titre de l'article
+        type: string
+        required: true
+      - name: date
+        label: Date de publication
+        type: date
+        required: true
+      - name: author
+        label: Auteur
+        type: select
+        default: "Sarah Maréchal"
+        options:
+          - label: Sarah Maréchal
+            value: "Sarah Maréchal"
+          - label: Maroua Soussi
+            value: "Maroua Soussi"
+      - name: image
+        label: Image de couverture
+        type: image
+        description: "Format recommandé : 1200x630px (16:9)"
+      - name: excerpt
+        label: Extrait / Résumé
+        type: text
+        description: "Court résumé affiché dans la liste du blog (2-3 phrases max)"
+      - name: categories
+        label: Catégories
+        type: select
+        list: true
+        options:
+          - label: Kinésithérapie
+            value: kinesitherapie
+          - label: Ostéopathie
+            value: osteopathie
+          - label: Sport
+            value: sport
+          - label: Prévention
+            value: prevention
+          - label: Seniors
+            value: seniors
+          - label: Post-opératoire
+            value: post-operatoire
+          - label: Actualités
+            value: actualites
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+        description: "Mots-clés séparés (ex: dos, exercices, boulogne-billancourt)"
+      - name: seo_title
+        label: Titre SEO
+        type: string
+        description: "Titre optimisé pour Google (max 60 caractères)"
+      - name: meta_description
+        label: Meta description
+        type: text
+        description: "Description pour Google (max 160 caractères)"
+      - name: og_image
+        label: Image Open Graph
+        type: image
+        description: "Image pour les réseaux sociaux (si différente de la couverture)"
+      - name: featured
+        label: Mis en avant
+        type: boolean
+        default: false
+        description: "Afficher en grand en haut de la page blog"
+      - name: published
+        label: Publié
+        type: boolean
+        default: true
+        description: "Décocher pour garder en brouillon"
+      - name: body
+        label: Contenu de l'article
+        type: rich-text

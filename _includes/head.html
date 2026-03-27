@@ -1,0 +1,28 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.seo_title | default: page.title }} | Cabinet Viluma Boulogne-Billancourt</title>
+<meta name="description" content="{{ page.meta_description | default: page.excerpt | strip_html | truncate: 160 }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+
+<!-- Open Graph -->
+<meta property="og:title" content="{{ page.seo_title | default: page.title }}">
+<meta property="og:description" content="{{ page.meta_description | default: page.excerpt | strip_html | truncate: 160 }}">
+<meta property="og:image" content="{{ page.og_image | default: page.image | default: '/images/image-9.jpg' | absolute_url }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Cabinet Viluma">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page.seo_title | default: page.title }}">
+<meta name="twitter:description" content="{{ page.meta_description | default: page.excerpt | strip_html | truncate: 160 }}">
+<meta name="twitter:image" content="{{ page.og_image | default: page.image | default: '/images/image-9.jpg' | absolute_url }}">
+
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/viluma-kine.css">
+<link rel="stylesheet" href="/css/blog.css">
+{% feed_meta %}
