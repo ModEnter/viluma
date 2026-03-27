@@ -486,12 +486,12 @@
       font-size: 14px !important;
       width: 100%;
     }
-    /* Overlay behind menu */
+    /* Overlay behind menu — must be below nav (z-index 100) and drawer (105) */
     .nav-overlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(74, 36, 2, 0.3);
-      z-index: 101;
+      z-index: 99;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.35s ease;
