@@ -1,4 +1,18 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+{% include head.html %}
+</head>
+<body data-page="blog">
+
+{% include header.html %}
+
+<main id="main-content">
 {{ content }}
+</main>
+
+{% include footer.html %}
+{% include burger.html %}
+
+</body>
+</html>

@@ -22,7 +22,6 @@ defaults:
       type: "posts"
     values:
       layout: post
-      data_page: blog
       author: "Sarah Maréchal"
       image: /images/blog/default-cover.jpg
 

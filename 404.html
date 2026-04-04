@@ -1,10 +1,87 @@
 ---
-layout: default
-data_page: error
-title: "Page introuvable"
+layout: null
 permalink: /404.html
 ---
-
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page introuvable | Cabinet Viluma</title>
+<meta name="description" content="La page que vous cherchez n'existe pas ou a été déplacée.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/viluma-kine.css">
+<style>
+  .page-404 {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 48px 24px;
+    background: var(--creme);
+  }
+  .page-404-inner { max-width: 480px; }
+  .page-404 h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 96px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .page-404 h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--brun-dark);
+    margin-bottom: 16px;
+  }
+  .page-404 p {
+    color: #8a6a50;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+  .page-404 .links {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .page-404 .links a {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: transform 0.2s, background 0.25s;
+  }
+  .page-404 .links a:first-child {
+    background: var(--brun);
+    color: var(--creme);
+  }
+  .page-404 .links a:first-child:hover {
+    background: var(--brun-dark);
+    transform: translateY(-1px);
+  }
+  .page-404 .links a:last-child {
+    background: transparent;
+    color: var(--brun);
+    border: 1px solid var(--gold);
+  }
+  .page-404 .links a:last-child:hover {
+    background: var(--gold);
+    color: var(--brun-dark);
+    transform: translateY(-1px);
+  }
+</style>
+</head>
+<body>
 <div class="page-404">
   <div class="page-404-inner">
     <h1>404</h1>
@@ -16,3 +93,5 @@ permalink: /404.html
     </div>
   </div>
 </div>
+</body>
+</html>
