@@ -1,6 +1,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% if page.full_title %}
+<title>{{ page.full_title }}</title>
+{% else %}
 <title>{{ page.seo_title | default: page.title }} | Cabinet Viluma Boulogne-Billancourt</title>
+{% endif %}
 <meta name="description" content="{{ page.meta_description | default: page.excerpt | strip_html | truncate: 160 }}">
 <link rel="canonical" href="{{ page.url | absolute_url }}">
 
@@ -24,5 +28,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/viluma-kine.css">
+{% if page.layout == 'post' or page.layout == 'blog' %}
 <link rel="stylesheet" href="/css/blog.css">
+{% endif %}
+{% for css in page.extra_css %}
+<link rel="stylesheet" href="/css/{{ css }}">
+{% endfor %}
 {% feed_meta %}

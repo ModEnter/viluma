@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+{% include head.html %}
+</head>
+<body data-page="{{ page.data_page | default: 'home' }}">
+{% include header.html %}
+<main id="main-content">
+{{ content }}
+</main>
+{% include footer.html %}
+{% include burger.html %}
+<script defer src="/js/main.js"></script>
+</body>
+</html>

@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-{% include head.html %}
+---
+layout: default
+---
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -29,12 +28,7 @@
   }
 }
 </script>
-</head>
-<body data-page="blog">
 
-{% include header.html %}
-
-<main id="main-content">
 <article class="blog-article">
   <div class="blog-article-header">
     <div class="blog-article-header-inner">
@@ -47,9 +41,12 @@
       </div>
       {% endif %}
       <h1>{{ page.title }}</h1>
+      {% assign words = content | number_of_words %}
+      {% assign read_time = words | divided_by: 250 | plus: 1 %}
       <div class="blog-article-meta">
         <span class="blog-article-author">{{ page.author }}</span>
         <span class="blog-article-date">{{ page.date | date: "%d %B %Y" }}</span>
+        <span class="blog-article-readtime">{{ read_time }} min de lecture</span>
       </div>
     </div>
   </div>
@@ -73,11 +70,34 @@
   {% endif %}
 </article>
 
+{% assign post_index = 0 %}
+{% for p in site.posts %}
+  {% if p.url == page.url %}{% assign post_index = forloop.index0 %}{% endif %}
+{% endfor %}
+{% assign prev_index = post_index | minus: 1 %}
+{% assign next_index = post_index | plus: 1 %}
+{% if prev_index >= 0 or next_index < site.posts.size %}
+<nav class="blog-prevnext" aria-label="Articles adjacents">
+  {% if next_index < site.posts.size %}
+  <a class="blog-prevnext-link" href="{{ site.posts[next_index].url }}">
+    <span class="blog-prevnext-label">← Article precedent</span>
+    <span class="blog-prevnext-title">{{ site.posts[next_index].title }}</span>
+  </a>
+  {% else %}<div></div>{% endif %}
+  {% if prev_index >= 0 %}
+  <a class="blog-prevnext-link next" href="{{ site.posts[prev_index].url }}">
+    <span class="blog-prevnext-label">Article suivant →</span>
+    <span class="blog-prevnext-title">{{ site.posts[prev_index].title }}</span>
+  </a>
+  {% else %}<div></div>{% endif %}
+</nav>
+{% endif %}
+
 {% assign related = site.posts | where_exp: "post", "post.url != page.url" | slice: 0, 3 %}
 {% if related.size > 0 %}
 <section class="blog-related">
   <div class="blog-related-inner">
-    <h2>Articles récents</h2>
+    <h2>Articles recents</h2>
     <div class="blog-cards">
       {% for post in related %}
       <a class="blog-card" href="{{ post.url }}">
@@ -102,16 +122,9 @@
 {% endif %}
 
 <section class="blog-cta">
-  <h2>Prenez rendez-vous dès aujourd'hui</h2>
+  <h2>Prenez rendez-vous des aujourd'hui</h2>
   <div class="cta-group">
-    <a href="https://www.doctolib.fr/cabinet-paramedical/boulogne-billancourt/viluma" class="cta-dark">Réserver sur Doctolib</a>
+    <a href="https://www.doctolib.fr/cabinet-paramedical/boulogne-billancourt/viluma" class="cta-dark">Reserver sur Doctolib</a>
     <a href="tel:0614701580" class="cta-phone">06 14 70 15 80</a>
   </div>
 </section>
-</main>
-
-{% include footer.html %}
-{% include burger.html %}
-
-</body>
-</html>
