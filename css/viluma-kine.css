@@ -31,6 +31,10 @@
     background: rgba(234,231,223,0.95);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    gap: 24px;
+  }
+  .logo-link {
+    flex-shrink: 0;
   }
   .logo-link img {
     height: 60px;
@@ -38,14 +42,20 @@
     display: block;
   }
   .nav-links {
-    display: flex; gap: 36px; list-style: none;
+    display: flex; gap: 28px; list-style: none;
     align-items: center;
+    flex-wrap: nowrap;
+    overflow: visible;
+  }
+  .nav-links li {
+    flex-shrink: 0;
   }
   .nav-links li a {
     text-decoration: none;
     font-size: 14px; font-weight: 500; letter-spacing: 0.04em;
     color: var(--brun); text-transform: uppercase;
     transition: opacity 0.2s;
+    white-space: nowrap;
   }
   .nav-links li a:hover { opacity: 0.6; }
   .nav-links li a.active { color: var(--brun-dark); font-weight: 600; }
@@ -59,9 +69,11 @@
     text-transform: uppercase; letter-spacing: 0.06em;
     text-decoration: none;
     transition: background 0.25s, transform 0.2s !important;
+    flex-shrink: 0;
+    white-space: nowrap;
   }
   .btn-rdv:hover { background: var(--brun-dark) !important; transform: translateY(-1px); opacity: 1 !important; }
-  .btn-rdv-desktop { display: inline-flex; }
+  .btn-rdv-desktop { display: inline-flex; flex-shrink: 0; }
 
   /* ── BURGER BUTTON ── */
   .burger {
@@ -481,8 +493,8 @@
     text-transform: uppercase; letter-spacing: 0.06em;
   }
 
-  /* ── MOBILE ── */
-  @media (max-width: 900px) {
+  /* ── MOBILE / TABLET NAV ── */
+  @media (max-width: 1050px) {
     nav { padding: 14px 20px; }
     .btn-rdv-desktop { display: none; }
     .burger { display: flex; }

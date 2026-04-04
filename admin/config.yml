@@ -3,6 +3,16 @@ backend:
   repo: ModEnter/viluma
   branch: main
 
+# Pour activer l'authentification, creer une GitHub OAuth App :
+# 1. Aller sur https://github.com/settings/developers
+# 2. Creer une nouvelle OAuth App
+# 3. Homepage URL : https://viluma-kinesitherapie.com
+# 4. Callback URL : https://api.netlify.com/auth/done
+# 5. Copier le Client ID et le Client Secret
+# 6. Connecter le site a Netlify OU utiliser un OAuth proxy
+
+publish_mode: editorial_workflow
+
 media_folder: "images/blog"
 public_folder: "/images/blog"
 
