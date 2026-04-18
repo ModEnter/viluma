@@ -29,7 +29,7 @@
 }
 .blog-hero .desc {
   font-size: 16px;
-  color: #8a6a50;
+  color: #6b4f38;
   line-height: 1.7;
   max-width: 560px;
   margin: 0 auto;
@@ -39,7 +39,7 @@
 .blog-article-header .breadcrumb,
 .blog-hero .breadcrumb {
   font-size: 13px;
-  color: #8a6a50;
+  color: #6b4f38;
   letter-spacing: 0.03em;
 }
 .blog-article-header .breadcrumb a,
@@ -121,7 +121,7 @@
 }
 .blog-card-body p {
   font-size: 14px;
-  color: #8a6a50;
+  color: #6b4f38;
   line-height: 1.6;
   flex: 1;
 }
@@ -197,7 +197,7 @@
 }
 .blog-article-meta {
   font-size: 14px;
-  color: #8a6a50;
+  color: #6b4f38;
   display: flex;
   gap: 16px;
   justify-content: center;
@@ -264,7 +264,7 @@
   background: var(--white);
   border-radius: 0 12px 12px 0;
   font-style: italic;
-  color: #8a6a50;
+  color: #6b4f38;
 }
 .blog-article-body img {
   max-width: 100%;

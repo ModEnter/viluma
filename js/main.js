@@ -89,8 +89,12 @@ const insertNavbar = () => {
 };
 
 const setupScrollAnimations = () => {
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
   const animatedElements = document.querySelectorAll(
-    ".section-plateau > *, .section-boxes-inner > *, .box-card"
+    ".section-plateau > *, .section-boxes-inner > *, .box-card, " +
+    ".section-localisation .adresse-block, .section-cta > *, .blog-card"
   );
   if (!animatedElements.length) return;
   const observer = new IntersectionObserver(
@@ -99,14 +103,15 @@ const setupScrollAnimations = () => {
         if (entry.isIntersecting) {
           entry.target.style.opacity = "1";
           entry.target.style.transform = "translateY(0)";
+          observer.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.15 }
+    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
   );
   animatedElements.forEach((el) => {
     el.style.opacity = "0";
-    el.style.transform = "translateY(30px)";
+    el.style.transform = "translateY(28px)";
     el.style.transition = "opacity 0.7s ease, transform 0.7s ease";
     observer.observe(el);
   });

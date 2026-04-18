@@ -3,19 +3,13 @@
   body { font-family: 'DM Sans', sans-serif; background: var(--creme); color: var(--brun-dark); overflow-x: hidden; }
 
   /* NAV */
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background: rgba(234,231,223,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(103,51,2,0.1); }
-  nav img.logo { height: 70px; }
-  nav ul { display: flex; gap: 32px; list-style: none; }
-  nav ul li a { text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.04em; color: var(--brun); text-transform: uppercase; transition: opacity 0.2s; }
-  nav ul li a:hover { opacity: 0.6; }
-  .btn-rdv { background: var(--brun); color: var(--creme) !important; padding: 11px 24px; border-radius: 30px; font-size: 13px !important; font-weight: 500 !important; text-transform: uppercase; letter-spacing: 0.06em; transition: background 0.2s !important; }
-  .btn-rdv:hover { background: var(--brun-dark) !important; opacity: 1 !important; }
+  /* Nav rules now inherited from viluma-kine.css for visual consistency across pages */
 
   /* HERO */
   .page-hero { padding: 140px 72px 100px; background: var(--brun-dark); position: relative; overflow: hidden; text-align: center; }
   .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 60%, rgba(222,192,143,0.1) 0%, transparent 65%); }
   .page-hero-inner { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
-  .breadcrumb { font-size: 13px; color: rgba(222,192,143,0.6); margin-bottom: 20px; }
+  .breadcrumb { font-size: 13px; color: rgba(222,192,143,0.9); margin-bottom: 20px; }
   .breadcrumb a { color: var(--gold); text-decoration: none; }
   .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(38px, 5vw, 62px); font-weight: 900; line-height: 1.1; color: var(--creme); margin-bottom: 20px; }
   .page-hero h1 em { font-style: italic; color: var(--gold); }
@@ -88,7 +82,7 @@
   .valeur-card:hover { background: rgba(222,192,143,0.13); }
   .valeur-card-icon { font-size: 28px; margin-bottom: 14px; }
   .valeur-card-title { font-size: 15px; font-weight: 600; color: var(--gold); margin-bottom: 8px; }
-  .valeur-card-text { font-size: 13px; line-height: 1.65; color: rgba(234,231,223,0.65); }
+  .valeur-card-text { font-size: 13px; line-height: 1.65; color: rgba(234,231,223,0.88); }
 
   /* CABINET PHOTOS */
   .photos-section { padding: 80px 72px; background: var(--white); }
@@ -112,7 +106,7 @@
   /* FOOTER */
   footer { background: var(--brun-dark); padding: 36px 72px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
   footer img { height: 38px; filter: brightness(0) invert(1) opacity(0.6); }
-  footer p, footer address { font-size: 13px; color: rgba(234,231,223,0.45); font-style: normal; }
+  footer p, footer address { font-size: 13px; color: rgba(234,231,223,0.78); font-style: normal; }
 
   /* REMBOURSEMENT BLOCK */
   .remboursement-block {
