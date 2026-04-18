@@ -3,13 +3,7 @@
   body { font-family: 'DM Sans', sans-serif; background: var(--creme); color: var(--brun-dark); overflow-x: hidden; }
 
   /* NAV */
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background: rgba(234,231,223,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(103,51,2,0.1); }
-  nav img.logo { height: 70px; }
-  nav ul { display: flex; gap: 32px; list-style: none; }
-  nav ul li a { text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.04em; color: var(--brun); text-transform: uppercase; transition: opacity 0.2s; }
-  nav ul li a:hover { opacity: 0.6; }
-  .btn-rdv { background: var(--brun); color: var(--creme) !important; padding: 11px 24px; border-radius: 30px; font-size: 13px !important; font-weight: 500 !important; text-transform: uppercase; letter-spacing: 0.06em; transition: background 0.2s !important; }
-  .btn-rdv:hover { background: var(--brun-dark) !important; opacity: 1 !important; }
+  /* Nav rules now inherited from viluma-kine.css for visual consistency across pages */
 
   /* HERO */
   .page-hero { padding: 140px 72px 100px; background: var(--brun-dark); position: relative; overflow: hidden; text-align: center; }

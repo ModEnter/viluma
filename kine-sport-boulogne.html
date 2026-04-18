@@ -21,17 +21,12 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/viluma-kine.css">
 <style>
   :root { --creme: #eae7df; --gold: #dec08f; --brun: #673302; --brun-dark: #4a2402; --white: #faf9f7; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'DM Sans', sans-serif; background: var(--creme); color: var(--brun-dark); overflow-x: hidden; }
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background: rgba(234,231,223,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(103,51,2,0.1); }
-  nav img.logo { height: 52px; }
-  nav ul { display: flex; gap: 32px; list-style: none; }
-  nav ul li a { text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.04em; color: var(--brun); text-transform: uppercase; transition: opacity 0.2s; }
-  nav ul li a:hover { opacity: 0.6; }
-  .btn-rdv { background: var(--brun); color: var(--creme) !important; padding: 11px 24px; border-radius: 30px; font-size: 13px !important; font-weight: 500 !important; text-transform: uppercase; letter-spacing: 0.06em; }
-  .btn-rdv:hover { background: var(--brun-dark) !important; opacity: 1 !important; }
+  /* Nav rules inherited from viluma-kine.css */
 
   .page-hero { padding: 140px 72px 80px; background: var(--brun-dark); position: relative; overflow: hidden; }
   .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 80% 50%, rgba(222,192,143,0.1) 0%, transparent 65%); }
@@ -85,12 +80,9 @@
   .cta-dark:hover { background: #2d1400; transform: translateY(-2px); }
   .cta-tel { display: flex; align-items: center; gap: 8px; color: var(--brun-dark); font-size: 15px; font-weight: 600; text-decoration: none; }
 
-  footer { background: var(--brun-dark); padding: 36px 72px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-  footer img { height: 38px; filter: brightness(0) invert(1) opacity(0.6); }
-  footer p, footer address { font-size: 13px; color: rgba(234,231,223,0.78); font-style: normal; }
+  /* Footer rules inherited from viluma-kine.css */
 
   @media (max-width: 900px) {
-    nav { padding: 14px 20px; } nav ul { display: none; }
     .page-hero { padding: 110px 24px 60px; }
     .section { padding: 56px 24px; }
     .two-col { grid-template-columns: 1fr; gap: 36px; }
@@ -256,7 +248,7 @@
 </main>
 
 <footer>
-  <img src="images/image-1.png" alt="Viluma">
+  <img class="logo-footer" src="images/image-1.png" alt="Viluma">
   <address>81 Av. Édouard Vaillant · 92100 Boulogne-Billancourt · Quartier Marcel Sembat</address>
   <p>© 2026 Cabinet Viluma – Kinésithérapie & Ostéopathie</p>
 </footer>
